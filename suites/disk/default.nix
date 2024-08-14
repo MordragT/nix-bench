@@ -11,6 +11,7 @@ nuenv.writeScriptBin {
     let rand-write = ${lib.getExe jobs.fio-randwrite} | from json
     let read = ${lib.getExe jobs.fio-read} | from json
     let write = ${lib.getExe jobs.fio-write} | from json
+    let dbench = ${lib.getExe jobs.dbench} | from json
 
     {
       sqlite: $sqlite,
@@ -18,6 +19,7 @@ nuenv.writeScriptBin {
       rand-wrtie: $rand-write,
       read: $read,
       write: $write,
+      dbench: $dbench,
     }
   '';
 }

@@ -4,7 +4,7 @@ self: pkgs: let
 in {
   test = callPackage ./test {};
 
-  sqlite = callPackage ./sqlite {};
+  dbench = callPackage ./dbench {};
 
   fio-randread = callPackage ./fio {
     rw = "randread";
@@ -22,4 +22,6 @@ in {
     rw = "write";
     blocksize = 2 * 1024 * 1024;
   };
+
+  sqlite = callPackage ./sqlite {};
 }
