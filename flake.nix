@@ -24,10 +24,12 @@
             nuenv.overlays.default
           ];
         };
-        benches = import ./benches pkgs;
+        jobs = import ./jobs pkgs;
+        suites = import ./suites (pkgs // {inherit jobs;});
       in {
-        packages.benches = benches;
-        packages.suites = import ./suites (pkgs // {inherit benches;});
+        packages = {
+          inherit jobs suites;
+        };
 
         devShells.default = pkgs.mkShell {
           buildInputs = [];
